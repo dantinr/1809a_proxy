@@ -2,8 +2,16 @@
 
     session_start();
 
-    $user_name = $_GET['u'];
+    //unset($_SESSION['user_name']);die;
 
-    //写入session
+    if(empty($_GET['u'])){
+        echo '请输入用户名';
+    }else{
+        //写入session
+        $_SESSION['user_name'] = $_GET['u'];
+    }
 
-    $_SESSION['user_name'] = $user_name;
+
+    echo '<pre>';print_r($_SESSION);echo '</pre>';
+
+
